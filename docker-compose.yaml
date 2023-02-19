@@ -1,8 +1,8 @@
 services:
     web:
-        build:
-            context: .
-            dockerfile: Dockerfile.web
+        image: inj77/work1
+        deploy:
+            replicas: 5          
         ports:
             - 8080:80
         volumes:
@@ -12,9 +12,7 @@ services:
         depends_on:
             - db
     db:
-        build:
-            context: .
-            dockerfile: Dockerfile.db
+        image: inj77/work2
         networks:
             - app-network
         environment:
